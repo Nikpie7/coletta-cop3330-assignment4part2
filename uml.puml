@@ -1,0 +1,53 @@
+@startuml
+Item <|-- TodoList
+Item <|-- App
+TodoList <|-- App
+ListManager <|-- App
+
+Item : private String myDescription
+Item : private String myDate
+Item : private boolean myCompletion
+Item : Item(String desc, String date)
+Item : String getDescription()
+Item : String getDueDate()
+Item : boolean isComplete()
+Item : void setDescription(String desc)
+Item : void setDueDate(String date)
+Item : void setCompletion(boolean comp)
+
+TodoList : private ArrayList<Item> myItems
+TodoList : private String myTitle
+TodoList : TodoList(String t)
+TodoList : TodoList(String t, ArrayList<Item> inputItems)
+TodoList : String getTitle()
+TodoList : Item getItem(String desc)
+TodoList : Item getItem(int index)
+TodoList : void setTitle(String t)
+TodoList : void addItem(Item i)
+TodoList : void addItem(String desc, String date)
+TodoList : Item removeItem(int i)
+TodoList : Item removeItem(String desc)
+TodoList : void replaceList(ArrayList<Item> myItems)
+
+ListManager : private ArrayList<TodoList> myTodoLists
+ListManager : ArrayList<TodoList> getTodoLists()
+ListManager : TodoList getTodoList(String title)
+ListManager : TodoList getTodoList(int index)
+ListManager : void addTodoList(TodoList T)
+ListManager : void addTodoList(String title)
+ListManager : void addTodoList(String title, ArrayList<Item> inputItems)
+ListManager : void removeTodoList(String title)
+ListManager : void removeTodoList(int index)
+ListManager : void exportTodoList(String filename, String title) throws IOException
+ListManager : void exportTodoList(String filename, int index) throws IOException
+ListManager : void exportAllTodoLists(String filename) throws IoException
+ListManager : void importTodoList(String filename) throws IOException
+ListManager : void importAllTodoLists(String filename)  throws IOException
+
+App : static void main(String[] args)
+App : void start()
+App : void loop()
+App : displayList()
+App : displayComplete()
+App : displayIncomplete()
+@enduml
