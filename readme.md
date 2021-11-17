@@ -1,6 +1,8 @@
-#########################################
-            TODO-LIST MANAGER
-#########################################
+----------------------
+
+TODO-LIST MANAGER:
+
+----------------------
 
 Todo-List Manager is a program that allows
 users to create, delete, and manage multiple
